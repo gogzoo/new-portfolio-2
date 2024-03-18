@@ -1,0 +1,31 @@
+{
+	//myPhpSnippet.code-snippet
+
+	"phpBlock_normal" : {
+		"scope": "php",
+		"prefix": "<?p",
+		"body": "<?php ${1:} ?>",
+		"description": "this is normal php code, in html."
+	},
+
+	"phpBlock_echo" : {
+		"scope": "php",
+		"prefix": "<?e",
+		"body": "<?php echo ${1:} ?>",
+		"description": "this is normal print php code."
+	},
+
+	"phpBlock_simple" : {
+		"scope": "php",
+		"prefix": "<?s",
+		"body": "<?= ${1:} ?>",
+		"description": "this is simple print php code."
+	},
+
+	"inPhpFunc" : {
+		"scope": "php",
+		"prefix": "fun",
+		"body": "function",
+		"description": "this is function in php."
+	}
+}

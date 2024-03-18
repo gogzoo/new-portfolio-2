@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/icon.png">
+    <title>곽지성 웹 퍼블리셔 포트폴리오</title>
+
+    <!-- 이 문서 CSS -->
+    <link rel="stylesheet" href="./20240313.css">
+    <link rel="stylesheet" href="./20240313_mobile.css">
+
+    <!-- xeicon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@900&display=swap" rel="stylesheet">
+
+    <!-- 본문용 font -->
+    <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUITE/fonts/variable/woff2/SUITE-Variable.css" rel="stylesheet">
+
+    <!-- aos css -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- 클립보드 js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+
+    <script>
+        AOS.init();
+    </script>
+
+    <div> <!-- 레이아웃보기용 -->
+        <button id="kk">레이아웃</button>
+        <script>
+            $("#kk").click(function(){
+                $("*").toggleClass("view-layout")
+            })
+        </script>
+    </div>
+
+    <!-- 이하 메인화면 배경 -->
+    <div class="main-bg-container">
+        <div class="cir cir1"></div>
+        <div class="cir cir2"></div>
+        <div class="cir cir3"></div>
+    </div>
+
+    <script> <!-- 배경용 스크립트-->
+        const mainThemeColor = ["#1B78F2", "#4BA4F2", "#94CEF2", "#93A603", "#F2CB05"];
+
+        function colorPickRand(classStr) {
+            var colorListLength = mainThemeColor.length;
+            var r = (Math.random() * colorListLength); // 0 ~ 5에서 난수 생성
+            r = Math.floor(r); // 0 ~ 4 의 정수 난수로 바꿈
+
+            // console.log(r);
+
+            var colorPick = mainThemeColor[r];
+            var colorPickTransprent = colorPick + "00"; // 투명용
+
+            var colorPickStrBg = `background: ${colorPick}`;
+            var colorPickStrGrad = `radial-gradient(circle, ${colorPick} 0%, ${colorPickTransprent} 70%)`;
+
+            // console.log(colorPickStrBg);
+            // console.log(colorPickStrGrad);
+
+            $(classStr).css("background", `${colorPick}`);
+            //$(classStr).css({background: colorPickStrGrad});
+        }
+
+        // 색 초기화
+        colorPickRand(".cir1");
+        colorPickRand(".cir2");
+        colorPickRand(".cir3");
+
+        setInterval(function(){
+            colorPickRand(".cir1");
+            colorPickRand(".cir2");
+            colorPickRand(".cir3");
+        }, 10000);
+
+        function moveRand(classStr) {
+            var vw = innerWidth;
+            var vh = innerHeight;
+
+            var randPosX = (Math.random() * vw);
+            var randPosY = (Math.random() * vh);
+
+            $(classStr).css("left", `${randPosX}px`);
+            $(classStr).css("top", `${randPosY}px`);
+        }
+
+        // 위치 초기화
+        moveRand(".cir1");
+        moveRand(".cir2");
+        moveRand(".cir3");
+        
+        setInterval(function(){
+            moveRand(".cir1");
+            moveRand(".cir2");
+            moveRand(".cir3");
+        }, 10000);
+    </script>
+
+    <!-- 이하 header -->
+
+    <h1 class="main">
+        <a href="#">My Portfolio</a>
+        <p>안녕하세요. 주니어 웹퍼블리셔 곽지성입니다.</p>
+    </h1>
+    <div class="to-nav">
+        <p>아래로 내려 더 보기</p>
+        <i class="xi-angle-down"></i>
+    </div>
+
+    <header class="win">
+        <h1 class="nav"><a href="#">My Portfolio</a></h1>
+        <p>2024, Web Publisher Portfolio</p>
+    </header>
+
+
+    <script>
+        // 화면이 내려가면 사라지고 보일 메인화면 요소들
+
+        $(window).scroll(function(){
+            var YPos = scrollY;
+            var catchvh = (innerHeight / 2);
+
+            if(YPos > catchvh) {
+                $("header").css("top", '0');
+                $("h1.main").css("opacity", "0")
+                $(".to-nav").css("opacity", "0")
+            }else {
+                $("header").css("top", "-100px");
+                $("h1.main").css("opacity", "1")
+                $(".to-nav").css("opacity", "1")
+            }
+        })
+    </script>
+
+    <div class="void"></div>
+
+    <!-- 이하 main -->
+
+    <main>
+        <section class="sec-1 win-rad" data-aos="fade-up" data-aos-duration="1500">
+            <h2>
+                <i class="xi-emoticon-happy"></i>
+                <span>About Me</span>
+            </h2>
+            <div class="win-in sec-1-1">
+                <div>
+                    <i class="xi-user"></i>
+                    <ul class="intro">
+                        <li>이름</li>
+                        <li>곽지성</li>
+                    </ul>
+                </div>
+                <div>
+                    <i class="xi-calendar"></i>
+                    <ul class="intro">
+                        <li>생년월일</li>
+                        <li>1996. 9. 20.</li>
+                    </ul>
+                </div>
+                <div>
+                    <i class="xi-compass"></i>
+                    <ul class="intro">
+                        <li>주소지</li>
+                        <li class="adr">경기도 수원시 권선구</li>
+                    </ul>
+                </div>
+                <div data-clipboard-text="01097172234" class="btn-phone">
+                    <i class="xi-call"></i>
+                    <ul class="intro copyble">
+                        <li>연락처</li>
+                        <li class="adr">010-9717-2234</li>
+                    </ul>
+                </div>
+                <div data-clipboard-text="rwt0911@naver.com" class="btn-email">
+                    <i class="xi-mail"></i>
+                    <ul class="intro copyble">
+                        <li>이메일</li>
+                        <li class="adr">rwt0911@naver.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <i class="xi-school"></i>
+                    <ul class="intro">
+                        <li>최종학력</li>
+                        <li class="adr">부경고등학교 졸업</li>
+                    </ul>
+                </div>
+            </div>
+
+            <script>
+                $("#go_blog").click(function(){
+                    open("http://xobo.tistory.com", "_blank");
+                })
+
+                function clipSuccess() { // 복사 성공시
+                    $(".copyble").addClass("try");
+
+                    $(".copyble").mouseleave(function(){
+                        setTimeout(()=>{
+                            $(this).removeClass("try");
+                        }, 500)
+                    });
+                }
+
+                function clipFail() { // 복사 실패시
+                    $(".copyble").addClass("catch");
+
+                    $(".copyble").mouseleave(function(){
+                        setTimeout(()=>{
+                            $(this).removeClass("catch");
+                        }, 500)
+                    });
+                }
+
+                var clipboard = new ClipboardJS(".btn-phone");
+
+                clipboard.on("success", function(e){
+                    console.log(e);
+                    clipSuccess();
+                })
+                clipboard.on("error", function(e){
+                    console.log(e);
+                    clipFail();
+                })
+
+                var clipboardMail = new ClipboardJS(".btn-email");
+
+                clipboardMail.on("success", function(m){
+                    console.log(m);
+                    clipSuccess();
+                })
+                clipboardMail.on("error", function(m){
+                    console.log(m);
+                    clipFail();
+                })
+            </script>
+        </section>
+
+        <section class="sec-1 win-rad sec-2" data-aos="fade-up" data-aos-duration="1500"">
+            <h2>
+                <i class="xi-lightbulb"></i>
+                <span>Introduce</span>
+            </h2>
+            <div class="win-in sec-2-1">
+                <h3 class="h3-min">주니어 웹퍼블리셔 곽지성입니다 <i class="xi-emoticon-smiley"></i></h3>
+                <p>어렸을 때 부터 그림 그리는 것에 관심이 많았고, 제가 상상했던 것을 더욱 다차원적으로 구현할 수 있는 컴퓨터 프로그래밍에 깊은 관심을 가지게 되었습니다. 현재 풀스택 개발자가 되기 위해서 프론트엔드 뿐만 아니라, 백엔드 기술도 배우고 공부하고 있습니다. 제가 배우고 공부한 기술들로 더욱 많은 것들을 만들고 싶습니다.</p>
+                <p>아래의 링크는 필기 노트처럼 제가 공부하면서 알게 된 것들을 적는 블로그와, 작업물을 올리는 Github 입니다.
+                    <ul class="intro-go-link">
+                        <li><a href="https://xobo.tistory.com/" target="_blank">블로그</a></li>
+                        <li><a href="https://github.com/gogzoo" target="_blank">Github</a></li>
+                    </ul>
+                </p>
+
+                <hr>
+
+                <h3>이것을 할 수 있어요 <i class="xi-emoticon-smiley"></i></h3>
+                <ul class="skill-stack">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>PHP</li>
+                    <li>JSP</li>
+                    <li>MySQL</li>
+                    <li>C++</li>
+                    <li>JAVA</li>
+                    <li>Python</li>
+                </ul>
+
+                <hr>
+
+                <h3>자격증 현황 <i class="xi-emoticon-smiley"></i></h3>
+                <ul class="skill-stack certi-min">
+                    <li>정보처리기능사/산업기사(필기)</li>
+                    <li>웹디자인기능사</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="sec-1 win-rad sec-3" data-aos="fade-up" data-aos-duration="1500">
+            <h2>
+                <i class="xi-business"></i>
+                <span>Career</span>
+            </h2>
+            <div class="win-in sec-2-1">
+                <div class="career-container">
+                    <ul>
+                        <li class="career-date">2018. 9. 1. ~ 2023. 8. 31.</li>
+                        <li class="career-in">대한민국공군</li>
+                        <li class="career-part">정보통신장비정비, 부사관</li>
+                    </ul>
+                    <div class="career-para">
+                        <p>저는 20살이 되고 바로 공군에 병사로 입대하여 2015년 부터 2017년 까지 복무하였습니다. 공군 병사로 지내며 부사관 생활에도 매력을 느껴 병사 전역 후 1년동안 준비하여 부사관으로 재입대하였습니다.</p>
+                        <p>
+                            부사관으로서 복무하였을 땐, 정보통신장비들을 정비하는 직책을 맡았으며, 맡은 임무를 성실하게 수행하고 동료들과 즐겁게 지내고 전문성을 키우기 위해 무선설비기능사, 전자계산기기능사를 취득했습니다. 이 때 취득했던 자격증들은 추후 정보처리산업기사 공부를 하는 데 도움이 되었습니다.
+                        </p>
+                        <p>
+                            하지만 그 때의 생활도 즐겁고 보람찼지만, 시간이 지날수록 역시 제가 어렸을 때 부터 하고 싶었던 일을 하고싶다고 생각하게 되었고, 지금은 전역하여 2023년 9월부터 SBS아카데미컴퓨터학원에서 해당 진로 취업과정을 이수하고 있습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec-1 win-rad sec-4" data-aos="fade-up" data-aos-duration="1500">
+            <h2>
+                <i class="xi-wrench"></i>
+                <span>Project</span>
+            </h2>
+            <div class="project-conatainer" data-aos="fade-up" data-aos-duration="1500">
+                <div class="project-view">
+                    <img class="pjt-pc pjt1-pc" src="./img/pjt1-pc.png" alt="프로젝트1pc">
+                    <div class="pc-view"></div>
+                    <img class="pjt-m pjt1-m" src="./img/pjt1-m.png" alt="프로젝트1m">
+                    <div class="m-view"></div>
+                </div>
+                <ul class="project-para">
+                    <li>메가스터디 웹사이트</li>
+                    <li>2024. 2월 2주 ~ 2월 4주</li>
+                    <li class="pjt-skill-stack">사용기술: <span>HTML</span><span>CSS</span><span>JS</span></li>
+                    <li><a href="http://mucooko12.dothome.co.kr/1_megastudy/index.html" target="_blank">바로가기</a></li>
+                    <li class="pjt-para-in"><p>설명: 기존의 다량의 정보가 포함된 원본 웹사이트를 정리했습니다. 슬라이드 구현은 swiperslide.js를 사용했습니다. 특이사항은 슬라이드의 pagination은 기본 제공이 슬라이드의 숫자만 지원하는 것인데, 저의 필요에 따라 이름을 붙인 것 입니다.</p></li>
+                </ul>
+            </div>
+
+            <hr class="sec-4-hr">
+
+            <div class="project-conatainer prjt-r" data-aos="fade-up" data-aos-duration="1500">
+                <div class="project-view">
+                    <img class="pjt-pc pjt2-pc" src="./img/pjt2-pc.png" alt="프로젝트2pc">
+                    <div class="pc-view"></div>
+                    <img class="pjt-m pjt2-m" src="./img/pjt2-m.png" alt="프로젝트2m">
+                    <div class="m-view"></div>
+                </div>
+                <ul class="project-para">
+                    <li>게임 이은날 소개 페이지</li>
+                    <li>2024. 3월 1주 ~ 3월 2주</li>
+                    <li class="pjt-skill-stack">사용기술: <span>HTML</span><span>CSS</span><span>JS</span></li>
+                    <li><a href="http://mucooko12.dothome.co.kr/2_tsugunohi/index.html" target="_blank">바로가기</a></li>
+                    <li class="pjt-para-in"><p>설명: 게임 "이은날"의 소개 페이지입니다. 기존 일본어 소개 페이지를 한국어로 재구성했습니다. 특이사항은 배경의 움직이는 요소들인데, 이것은 JavaScript, Quary만을 이용하여 어떤 이미지요소 하나와 속도, 방향을 지정하면 알아서 화면 너비만큼 자동으로 복사되어 움직이게 하는 함수를 만들어서 처리하였습니다.</p></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    
+</body>
+</html>

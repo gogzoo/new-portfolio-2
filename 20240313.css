@@ -1,0 +1,797 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+.view-layout {
+    box-shadow: 0 0 2px blue inset;
+}
+#kk {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100000000000000;
+}
+
+/* ------------------------------------- */
+/* fonts */
+
+.alexandria {
+    font-family: "Alexandria", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MICEGothic Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SUITE-SemiBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-SemiBold.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TAEBAEKfont';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/TAEBAEKfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ------------------------------------- */
+/* roots */
+
+:root {
+    --color-main-c1: #1B78F2;
+    --color-main-c2: #4BA4F2;
+    --color-main-c3: #94CEF2;
+    --color-main-c4: #93A603;
+    --color-main-c5: #F2CB05;
+
+    --color-main-bg: #aae0ff;
+    --color-bg-tonedown: rgba(255, 255, 255, 0.4);
+    --color-bg-tonedown-high: rgba(255, 255, 255, 0.7);
+    --color-win-shadow: rgba(126, 168, 205, 0.2);
+    --color-text-shadow: rgba(126, 168, 205, 0.8);
+    --color-border-1: rgba(126, 168, 205, 0.2);
+
+    --color-logo: #24374e;
+
+    --color-para-1: #30373e;
+    --color-para-2: rgb(126, 137, 148);
+
+    --font-title-1: "Alexandria", sans-serif;
+    --font-title-2: 'TAEBAEKfont';
+    --font-para-1: 'SUITE Variable', sans-serif;
+}
+
+/* ------------------------------------- */
+/* 이하 일반적 요소, win */
+
+.win {
+    background-color: var(--color-bg-tonedown);
+    box-shadow: 0 0 5px var(--color-bg-tonedown-high) inset;
+    backdrop-filter: blur(30px);
+    z-index: 10;
+    margin: 0 auto;
+}
+
+.win::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    content: '';
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 20px 40px var(--color-win-shadow);
+    z-index: -1;
+}
+
+.win-rad {
+    background-color: var(--color-bg-tonedown);
+    box-shadow: 0 0 5px var(--color-bg-tonedown-high) inset;
+    backdrop-filter: blur(30px);
+    z-index: 10;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.win-rad::atfer {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    content: '';
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 20px 40px var(--color-win-shadow);
+    z-index: -1;
+    border-radius: 10px;
+}
+
+.win-in {
+    width: fit-content;
+    height: fit-content;
+    padding: 0.5em 1em;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 20px var(--color-win-shadow);
+    font-size: 1.7em;
+    color: var(--color-para-1);
+}
+
+/* ------------------------------------- */
+/* 기타 일반적 요소 */
+
+hr {
+    margin: 0.7em 0 1em 0;
+    border: 1px solid var(--color-border-1);
+}
+
+/* ------------------------------------- */
+/* 이하 배경용 */
+
+.main-bg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, var(--color-main-bg) 100%);
+    
+    z-index: -100;
+}
+
+.main-bg-container::before {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    content: '';
+    width: 100vw;
+    height: 100vh;
+
+    background: rgba(255, 255, 255, 0.5);
+
+    backdrop-filter: blur(100px);
+    z-index: -90;
+}
+
+.cir {
+    position: absolute;
+    border-radius: 50%;
+    z-index: -100;
+    translate: -50% -50%;
+    transition: 10s linear;
+}
+
+.cir1 {
+    top: 0;
+    left: 0;
+
+    width: 20vw;
+    height: 20vw;
+}
+.cir2 {
+    top: 0;
+    left: 0;
+
+    width: 40vw;
+    height: 40vw;
+}
+.cir3 {
+    top: 0;
+    left: 0;
+
+    width: 60vw;
+    height: 60vw;
+}
+
+/* ------------------------------------- */
+/* 이하 header */
+
+header {
+    position: fixed;
+    top: -100px;
+    left: 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2em;
+
+    width: 100%;
+    height: 80px;
+    transition: 1s;
+    z-index: 10000000 !important;
+}
+
+/* 첫화면에만 보일 h1 */
+h1.main { 
+    position: fixed;
+    top: 50%;
+    left: 30%;
+    translate: -50% -50%;
+    
+    font-family: var(--font-title-1);
+    font-size: 3em;
+    transition: 1s;
+}
+
+/* header 바에서 보일 h1 */
+h1.nav {
+    font-family: var(--font-title-1);
+    font-size: 2em;
+}
+
+h1>a {
+    color: var(--color-logo);
+}
+
+header>p {
+    font-family: var(--font-para-1);
+    font-weight: 700;
+}
+
+.main>p {
+    font-size: 0.5em;
+    color: var(--color-logo);
+}
+
+.to-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    position: fixed;
+    bottom: 1em;
+    left: 50vw;
+    translate: -50% -50%;
+
+    width: fit-content;
+    height: fit-content;
+    color: white;
+    text-shadow: 0 0 10px var(--color-text-shadow);
+    font-size: 1.5em;
+    transition: 1s;
+
+    animation: pika 5s infinite linear;
+}
+
+.to-nav>p {
+    margin-bottom: 0.5em;
+}
+
+p {
+    font-family: var(--font-para-1);
+}
+
+.void {
+    position: relative;
+    top: 0;
+    width: 100px;
+    height: 150vh;
+    background-color: rgb(255, 255, 255);
+    opacity: 0;
+}
+
+/* ------------------------------------- */
+/* 이하 main */
+
+main {
+    display: flex;
+    flex-direction: column;
+
+    margin: 0 auto;
+    width: 1024px;
+    /* 모바일용은 이것이 main width로 설정되어야 */
+}
+
+/* ------------------------------------- */
+/* 이하 section1 */
+
+.sec-1 {
+    display: flex;
+    flex-direction: column;
+
+    width: 95%;
+    height: fit-content;
+    margin-bottom: 3em;
+    padding: 1em;
+}
+
+.sec-1>h2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: fit-content;
+    height: fit-content;
+    padding: 0.5em 1em;
+    box-sizing: content-box;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 20px var(--color-win-shadow);
+    font-size: 1.9em;
+    color: var(--color-para-1);
+}
+
+.sec-1>h2>i {
+    font-size: 1.2em;
+    margin-right: 0.3em;
+}
+
+.sec-1>h2>span {
+    font-family: var(--font-title-1);
+}
+
+.sec-1-1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5em 0.5em;
+
+    width: 100%;
+    height: fit-content;
+    margin-top: 0.5em;
+    padding: 0.5em;
+}
+
+.sec-1-1>div {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0.5em;
+    border: 1px solid var(--color-border-1);
+    border-radius: 5px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.sec-1-1>div:hover {
+    scale: 1.05;
+}
+
+.sec-1-1 i {
+    font-size: 2em;
+    margin-right: 0.25em;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-para-1);
+}
+
+.intro>li:first-child {
+    font-weight: 800;
+}
+
+.intro>li:last-child {
+    font-size: 0.9em;
+}
+
+.adr {
+    font-size: 0.8em !important;
+}
+
+.hplink::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
+
+.hplink::before {
+    &:hover li {
+        animation: go-location, 4s, infinite linear;
+    }
+}
+
+@keyframes go-location {
+    0%{
+        color: inherit;
+    }
+
+    10% {
+        color: var(--color-main-c5);
+    }
+
+    20% {
+        color: inherit;
+    }
+
+    100% {
+        color: inherit;
+    }
+}
+
+.copyble::after {
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    translate: -50% 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    content: "클릭하면 복사됩니다";
+    opacity: 0;
+    transition: 0.3s;
+
+    width: 60%;
+    height: fit-content;
+    padding: 0.2em 0.5em;
+    background-color: var(--color-main-c4);
+    color: white;
+    border-radius: 5px;
+    font-size: 0.6em;
+    scale: 1;
+}
+
+.copyble:hover::after {
+    opacity: 1;
+    scale: 0.9;
+}
+
+.copyble.try::after {
+    content: "복사되었습니다";
+    background-color: var(--color-main-c2);
+}
+
+.copyble.catch::after {
+    content: "복사에 실패했습니다";
+    background-color: red;
+}
+
+/* ------------------------------------- */
+/* 이하 section2 */
+
+.sec-2-1 {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: fit-content;
+    margin-top: 0.5em;
+    padding: 0.5em;
+}
+
+.sec-2-1>h3 {
+    display: flex;
+    align-items: center;
+    font-family: var(--font-para-1);
+    margin-right: 1em;
+    font-size: 1em;
+}
+
+.sec-2-1>h3>i {
+    margin-left: 0.2em;
+}
+
+.sec-2-1>p {
+    display: flex;
+    flex-direction: column;
+    
+    width: 100%;
+    height: fit-content;
+    line-height: 160%;
+    padding: 0.5em;
+    font-size: 0.9em;
+}
+
+.intro-go-link {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    padding-left: 0.5em;
+    font-family: var(--font-para-1);
+}
+
+.intro-go-link>li {
+    margin-right: 0.5em;
+}
+
+.intro-go-link>li>a { /* 링크 버튼 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    background-color: var(--color-main-c3);
+    border-radius: 5px;
+    font-size: 0.8em;
+    padding: 0.25em 0.7em;
+    transition: 0.3s;
+}
+
+.intro-go-link>li>a:hover {
+    background-color: var(--color-main-c1);
+}
+
+/* hr {
+    margin: 0.7em 0 1em 0;
+    border: 1px solid var(--color-border-1);
+} */
+
+.skill-stack {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0.7em 0.3em 0.3em 0.3em;
+}
+
+.skill-stack>li {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+
+    width: fit-content;
+    height: fit-content;
+    padding: 0.4em 1.5em;
+    margin: 0 0.3em 0.6em 0.3em;
+    border: 1px solid var(--color-border-1);
+    border-radius: 5px;
+    font-family: var(--font-para-1);
+    font-size: 0.9em;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.skill-stack>li:hover {
+    background-color: var(--color-main-c1);
+    scale: 1.05;
+    color: white;
+}
+
+/* ------------------------------------- */
+/* 이하 section3 */
+
+.career-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    width: 100%;
+    height: fit-content;
+}
+
+.career-container>ul {
+    display: flex;
+    flex-direction: column;
+
+    width: 25%;
+    height: fit-content;
+    font-family: var(--font-para-1);
+}
+
+.career-date, .career-part {
+    font-size: 0.6em;
+}
+
+.career-in {
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.career-para {
+    display: inline-block;
+    width: 70%;
+    height: fit-content;
+    font-size: 0.8em;
+}
+
+.career-para>p {
+    line-height: 150%;
+    margin-bottom: 0.5em;
+}
+
+/* ------------------------------------- */
+/* 이하 section4 */
+
+.project-conatainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: row;
+
+    width: 100%;
+    height: fit-content;
+    padding: 0.8em;
+    margin-top: 1em;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 20px var(--color-win-shadow);
+}
+
+.prjt-r {
+    flex-direction: row-reverse;
+}
+
+.project-view {
+    position: relative;
+    top: 0;
+    left: 0;
+
+    width: 40%;
+    height: 300px;
+}
+
+.project-para {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    width: 55%;
+    height: fit-content;
+    font-family: var(--font-para-1);
+    padding: 1em 0 0 0;
+}
+
+.pc-view {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+
+    width: 300px;
+    height: 240px;
+
+    background-image: url(./img/monior.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    z-index: 100;
+}
+
+/* 300 * 186px */
+.pjt-pc { 
+    position: absolute;
+    top: 42.5%;
+    left: 50%;
+    translate: -50% -50%;
+    border-radius: 5px;
+
+    width: 298px;
+    z-index: 50;
+}
+
+.m-view {
+    position: absolute;
+    top: 70%;
+    left: 85%;
+    translate: -50% -50%;
+    
+    width: 70px;
+    height: 140px;
+
+    background-image: url(./img/phone.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    z-index: 200;
+}
+
+/* 65 * 137px */
+.pjt-m { 
+    position: absolute;
+    top: 47.5%;
+    left: 85%;
+    translate: -50%;
+    border-radius: 10px;
+
+    width: 63px;
+    z-index: 150;
+}
+
+.project-para>li {
+    font-size: 1.4em;
+    margin-bottom: 0.3em;
+}
+
+.project-para>li:nth-child(1) {
+    font-size: 1.6em;
+    font-weight: bold;
+}
+
+.pjt-skill-stack {
+    display: flex;
+    align-items: center;
+}
+
+.pjt-skill-stack>span {
+    vertical-align: middle;
+    border: 1px solid var(--color-border-1);
+    font-size: 0.8em;
+    padding: 0.2em 0.6em;
+    border-radius: 5px;
+    margin-left: 0.4em;
+    cursor: pointer;
+}
+
+.project-para>li>a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    background-color: var(--color-main-c3);
+    border-radius: 5px;
+    font-size: 0.8em;
+    padding: 0.25em 0.7em;
+    transition: 0.3s;
+}
+
+.project-para>li>a:hover {
+    background-color: var(--color-main-c1);
+}
+
+.pjt-para-in {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    width: 100%;
+    height: fit-content;
+}
+
+.pjt-para-in>p {
+    display: inline-block;
+    margin-left: 0.4em;
+    font-size: 0.9em;
+}
+
+.sec-4-hr {
+    margin-top: 1em;
+    margin-bottom: 0em;
+}
+
+
+/* ------------------------------------- */
+/* 이하 animation */
+
+@keyframes pika {
+    0% {
+        color: var(--color-logo);
+    }
+
+    10% {
+        color: white;
+    }
+
+    20% {
+        color: var(--color-logo);
+    }
+
+    100% {
+        color: var(--color-logo);
+    }
+}

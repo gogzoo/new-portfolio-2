@@ -1,0 +1,237 @@
+@media (max-width: 1024px) {
+    header {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    h1.main {
+        left: 0.5em;
+        font-size: 2em;
+        translate: 0 -50%;
+    }
+
+    .to-nav {
+        font-size: 1em;
+    }
+
+    .to-nav>p {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 380px) {
+    header {
+        height: 70px;
+    }
+
+    h1.nav {
+        font-family: var(--font-title-1);
+        font-size: 1.6em;
+    }
+
+    header>p {
+        font-size: 0.8em;
+    }
+}
+
+/* ------------------------------------- */
+
+@media (max-width: 1024px) {
+    main {
+        width: 100%;
+    }
+}
+
+/* ------------------------------------- */
+
+@media (max-width: 1024px) {
+    .sec-1-1 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (max-width: 380px) {
+    .sec-1-1 {
+        padding: 0.3em;
+    }
+
+    .sec-1-1>div {
+        padding: 0.2em;
+    }
+    
+    .sec-1>h2 {
+        font-size: 1.3em;
+    }
+
+    .sec-1-1 i {
+        font-size: 1.8em;
+    }
+
+    .intro>li:first-child {
+        font-size: 0.8em;
+    }
+
+    .intro>li:last-child {
+        font-size: 0.7em;
+    }
+
+    .intro>li.adr {
+        font-size: 0.5em !important;
+    }
+}
+
+/* ------------------------------------- */
+
+@media (max-width: 1024px) {
+    .sec-2-1>.h3-min {
+        font-size: 0.8em;
+    }
+
+    .sec-2-1>p { /*첫소개*/
+        font-size: 0.8em;
+    }
+
+    .skill-stack.certi-min {
+        flex-direction: column;
+    }
+
+    .skill-stack.certi-min>li {
+        font-size: 0.7em;
+        width: 100%;
+        margin: 0;
+    }
+
+    .skill-stack.certi-min>li:first-child {
+        margin-bottom: 0.8em;
+    }
+}
+
+@media (max-width: 400px) {
+    .sec-2-1>.h3-min {
+        font-size: 0.7em;
+    }
+}
+
+@media (max-width: 380px) {
+    .sec-2-1>h3.h3-min {
+        font-size: 0.5em;
+    }
+
+    .sec-2-1>p { /*첫소개*/
+        font-size: 0.6em;
+    }
+
+    .intro-go-link>li>a {
+        font-size: 0.5em;
+    }
+
+    .sec-2-1>h3 {
+        font-size: 0.7em;
+    }
+
+    .skill-stack>li {
+        font-size: 0.6em;
+    }
+
+    .certi-min>li:first-child {
+        font-size: 0.4em;
+    }
+
+    .certi-min>li:last-child {
+        font-size: 0.6em;
+    }
+}
+
+/* ------------------------------------- */
+
+@media (max-width: 1024px) {
+    /* sec-3 */
+
+    .career-container {
+        flex-direction: column;
+    }
+
+    .career-container>ul {
+        width: 100%;
+        margin-bottom: 0.6em;
+    }
+
+    .career-date, .career-part {
+        font-size: 0.8em;
+        color: var(--color-para-2);
+    }
+    
+    .career-in {
+        font-size: 1em;
+        font-weight: bold;
+    }
+
+    .career-para {
+        width: 100%;
+    }
+}
+
+@media (max-width: 380px) {
+    .career-date, .career-part {
+        font-size: 0.5em;
+        color: var(--color-para-2);
+    }
+    
+    .career-in {
+        font-size: 0.7em;
+    }
+
+    .career-para { /*두째소개*/
+        font-size: 0.6em;
+    }
+}
+
+/* ------------------------------------- */
+
+@media (max-width: 1024px) {
+    .project-conatainer {
+        flex-direction: column;
+    }
+
+    .project-view {
+        width: 100%;
+    }
+
+    .project-para {
+        width: 100%;
+    }
+}
+
+@media (max-width: 380px) {
+    .project-view {
+        height: 250px;
+    }
+
+    .pc-view {
+        width: 200px;
+        height: 160px;
+    }
+
+    .pjt-pc {
+        top: 44%;
+        width: 198px;
+    }
+
+    .m-view {
+        width: 50px;
+        height: 100px;
+    }
+
+    .pjt-m {
+        top: 49.7%;
+        width: 47px;
+    }
+
+    .project-para>li {
+        font-size: 0.9em;
+    }
+
+    .project-para>li:nth-child(1) {
+        font-size: 1.2em;
+    }
+}
