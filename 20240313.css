@@ -67,6 +67,7 @@
     --color-pj1-mega: #0084FB;
     --color-pjt2-tsugu: #CC371E;
     --color-pjt3-little: #75499E;
+    --color-pjt5-unleash: #f4876f;
 
     --color-logo: #24374e;
 
@@ -824,6 +825,13 @@ span.span_tsugu {
 
 span.span_little {
     background-color: var(--color-pjt3-little);
+    color: white;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+span.span_unleash {
+    background-color: var(--color-pjt5-unleash);
     color: white;
     border-radius: 5px;
     padding: 2px;

@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="./img/metaImg/main.png">
+    <meta property="og:title" content="웹 포트폴리오">
     <link rel="icon" href="./img/icon.png">
-    <title>곽지성 웹 퍼블리셔 포트폴리오</title>
+    <title>곽지성 웹 포트폴리오</title>
 
     <!-- 이 문서 CSS -->
     <link rel="stylesheet" href="./20240313.css">
@@ -272,12 +274,13 @@
                     <li>HTML</li>
                     <li>CSS</li>
                     <li>JavaScript</li>
+                    <li>React</li>
                     <li>PHP</li>
-                    <li>JSP</li>
                     <li>MySQL</li>
                     <li>C++</li>
                     <li>JAVA</li>
                     <li>Python</li>
+                    <li>Github</li>
                 </ul>
 
                 <hr>
@@ -373,6 +376,23 @@
 
             <div class="project-conatainer prjt-r" data-aos="fade-up" data-aos-duration="1500">
                 <div class="project-view">
+                    <div class="pjt-img-wrap-pc"><img class="pjt-pc pjt5-pc" src="./img/pjt5-pc.png" alt="프로젝트5pc"></div>
+                    <div class="pc-view"></div>
+                    <div class="pjt-img-wrap-m"><img class="pjt-m pjt5-m" src="./img/pjt5-m.png" alt="프로젝트5m"></div>
+                    <div class="m-view"></div>
+                </div>
+                <ul class="project-para">
+                    <li>리액트 기반 페이지</li>
+                    <li class="pjt-skill-stack"><span>HTML</span><span>CSS</span><span>JS</span><span>React</span></li>
+                    <li><a href="https://gogzoo.github.io/" target="_blank" id="btn_unleash">바로가기</a></li>
+                    <li class="pjt-para-in"><p>설명: 프론트엔드에서 가장 많이 쓰이는 React를 사용하여 무료 이미지 스톡 다운로드 사이트를 만들었습니다. <span class="span_unleash">리액트의 주요 기능인 훅(Hook, useState, useEffect, Context 등)을 이용</span>하여 사용자가 선택한 이미지 정보 저장 및 공유, 이미지 검색을 구현하였고, JSON 형식의 정보를 읽어 이미지 리스트를 생성하므로, <span class="span_unleash">이미지 API를 바로 적용시킬 수 있습니다.</span></p></li>
+                </ul>
+            </div>
+
+            <hr class="sec-4-hr">
+
+            <div class="project-conatainer prjt" data-aos="fade-up" data-aos-duration="1500">
+                <div class="project-view">
                     <div class="pjt-img-wrap-pc"><img class="pjt-pc pjt3-pc" src="./img/pjt3-pc.png" alt="프로젝트3pc"></div>
                     <div class="pc-view"></div>
                     <div class="pjt-img-wrap-m"><img class="pjt-m pjt1-m" src="./img/pjt3-m.png" alt="프로젝트3m"></div>
@@ -395,7 +415,9 @@
                 "tsugu": "#CC371E",
                 "tsuguHigh": "#FFC3BE",
                 "little": "#75499E",
-                "littleHigh": "#E3BAFF"
+                "littleHigh": "#E3BAFF",
+                "unleash" : "#f4876f",
+                "unleashHigh" : "#fff243"
             }
 
             const shortcutBtn = (idName, color, highColor) => {
@@ -430,6 +452,7 @@
             shortcutBtn("btn_mega", portfolioThemeColor["mega"], portfolioThemeColor["megaHigh"]);
             shortcutBtn("btn_tsugu", portfolioThemeColor["tsugu"], portfolioThemeColor["tsuguHigh"]);
             shortcutBtn("btn_little", portfolioThemeColor["little"], portfolioThemeColor["littleHigh"]);
+            shortcutBtn("btn_unleash", portfolioThemeColor["unleash"], portfolioThemeColor["unleashHigh"]);
         </script>
     </main>
 </body>
